@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_splash_test1/features/authentication/screens/signup/verify_email_screen.dart';
 import 'package:flutter_splash_test1/features/authentication/screens/signup/widgets/terms_and_conditions_checkbox.dart';
 import 'package:flutter_splash_test1/utils/constants/text_strings.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../../utils/constants/sizes.dart';
 
@@ -110,7 +112,8 @@ class MSignUpForm extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: ElevatedButton(
-              onPressed: () {}, child: const Text(MTexts.createAccount)),
+              onPressed: () => Get.to(() => const VerifyEmailScreen()),
+              child: const Text(MTexts.createAccount)),
         )
       ],
     ));

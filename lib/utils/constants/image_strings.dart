@@ -16,4 +16,10 @@ class MImages {
       "assets/images/on_boarding_images/on-boarding-shopping.gif";
   static const String onBoardingImage3 =
       "assets/images/on_boarding_images/on-boarding-delivery.gif";
+
+  // -- Animations
+  static const String staticSuccessIllustration =
+      "assets/images/animations/successfully-acountcreated.gif";
+  static const String verifyIllustration =
+      "assets/images/animations/verify-email.gif";
 }
