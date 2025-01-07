@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_splash_test1/features/authentication/screens/password_configration/forgot_password.dart';
 import 'package:flutter_splash_test1/features/authentication/screens/signup/signup_screen.dart';
+import 'package:flutter_splash_test1/navigation_menu.dart';
 import 'package:flutter_splash_test1/utils/constants/sizes.dart';
 import 'package:flutter_splash_test1/utils/constants/text_strings.dart';
 import 'package:get/get.dart';
@@ -69,7 +70,8 @@ class MLoginForm extends StatelessWidget {
             SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: () {}, child: const Text(MTexts.signIn))),
+                    onPressed: () => Get.to(() => const NavigationMenu()),
+                    child: const Text(MTexts.signIn))),
             const SizedBox(
               height: MSizes.spaceBetweenItems,
             ),
