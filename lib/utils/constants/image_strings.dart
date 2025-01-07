@@ -22,4 +22,6 @@ class MImages {
       "assets/images/animations/successfully-acountcreated.gif";
   static const String verifyIllustration =
       "assets/images/animations/verify-email.gif";
+  static const String deliveredEmailIllustration =
+      "assets/images/animations/delivered-email-illustration.gif";
 }
