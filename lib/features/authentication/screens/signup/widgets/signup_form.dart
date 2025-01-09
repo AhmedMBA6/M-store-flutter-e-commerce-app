@@ -105,7 +105,7 @@ class MSignUpForm extends StatelessWidget {
         /// Terms&Conditions Checkbox
         const MTermsAndConditionCheckbox(),
         const SizedBox(
-          height: MSizes.spacedBetweenSections,
+          height: MSizes.spaceBetweenSections,
         ),
 
         /// Sign up Button

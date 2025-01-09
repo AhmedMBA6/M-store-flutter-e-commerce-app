@@ -24,4 +24,15 @@ class MImages {
       "assets/images/animations/verify-email.gif";
   static const String deliveredEmailIllustration =
       "assets/images/animations/delivered-email-illustration.gif";
+
+  // -- Category Icons
+  static const String sportIcon = 'assets/icons/icons8-bowling-64.png';
+  static const String clothIcon = 'assets/icons/icons8-tailors-dummy-64.png';
+  static const String shoeIcon = 'assets/icons/icons8-shoes-64.png';
+  static const String cosmeticsIcon = 'assets/icons/icons8-cosmetics-64.png';
+  static const String animalIcon = 'assets/icons/icons8-heart-with-dog-paw-64.png';
+  static const String toyIcon = 'assets/icons/icons8-limousine-50.png';
+  static const String furnitureIcon = 'assets/icons/icons8-dining-room-50.png';
+  static const String jeweleryIcon = 'assets/icons/icons8-sparkling-diamond-50.png';
+  static const String electronicsIcon = 'assets/icons/icons8-smartphone-50.png';
 }

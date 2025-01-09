@@ -29,7 +29,7 @@ class SuccessScreen extends StatelessWidget {
                   image: AssetImage(image),
                 ),
                 const SizedBox(
-                  height: MSizes.spacedBetweenSections,
+                  height: MSizes.spaceBetweenSections,
                 ),
 
                 /// Title & subTitle
@@ -47,7 +47,7 @@ class SuccessScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(
-                  height: MSizes.spacedBetweenSections,
+                  height: MSizes.spaceBetweenSections,
                 ),
 
                 /// Buttons

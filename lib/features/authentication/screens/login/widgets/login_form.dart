@@ -17,7 +17,7 @@ class MLoginForm extends StatelessWidget {
     return Form(
       child: Padding(
         padding:
-            const EdgeInsets.symmetric(vertical: MSizes.spacedBetweenSections),
+            const EdgeInsets.symmetric(vertical: MSizes.spaceBetweenSections),
         child: Column(
           children: [
             /// Email
@@ -63,7 +63,7 @@ class MLoginForm extends StatelessWidget {
               ],
             ),
             const SizedBox(
-              height: MSizes.spacedBetweenSections,
+              height: MSizes.spaceBetweenSections,
             ),
 
             /// Sign in Button

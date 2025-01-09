@@ -25,19 +25,19 @@ class SignupScreen extends StatelessWidget {
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
               const SizedBox(
-                height: MSizes.spacedBetweenSections,
+                height: MSizes.spaceBetweenSections,
               ),
 
               /// Form
               const MSignUpForm(),
               const SizedBox(
-                height: MSizes.spacedBetweenSections,
+                height: MSizes.spaceBetweenSections,
               ),
 
               /// Divider
               MFormDivider(dividerText: MTexts.orSignUpWith.capitalize!),
               const SizedBox(
-                height: MSizes.spacedBetweenSections,
+                height: MSizes.spaceBetweenSections,
               ),
 
               /// Social Buttons

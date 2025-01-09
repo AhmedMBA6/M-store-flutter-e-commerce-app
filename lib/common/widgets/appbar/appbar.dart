@@ -8,7 +8,7 @@ class MAppbar extends StatelessWidget implements PreferredSizeWidget {
   const MAppbar(
       {super.key,
       this.title,
-      this.showBackArrow = true,
+      this.showBackArrow = false,
       this.leadingIcon,
       this.actions,
       this.leadingOnPressed});

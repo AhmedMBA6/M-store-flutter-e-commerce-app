@@ -30,7 +30,7 @@ class LoginScreen extends StatelessWidget {
                 dividerText: MTexts.orSignInWith.capitalize!,
               ),
               const SizedBox(
-                height: MSizes.spacedBetweenSections,
+                height: MSizes.spaceBetweenSections,
               ),
 
               /// Footer

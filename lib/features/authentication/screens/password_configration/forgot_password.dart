@@ -30,7 +30,7 @@ class ForgotPassword extends StatelessWidget {
               style: Theme.of(context).textTheme.labelMedium,
             ),
             const SizedBox(
-              height: MSizes.spacedBetweenSections * 2,
+              height: MSizes.spaceBetweenSections * 2,
             ),
 
             /// Text fiels
@@ -41,7 +41,7 @@ class ForgotPassword extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: MSizes.spacedBetweenSections,
+              height: MSizes.spaceBetweenSections,
             ),
 
             /// submit button

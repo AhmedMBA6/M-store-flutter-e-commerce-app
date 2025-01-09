@@ -31,7 +31,7 @@ class ResetPassword extends StatelessWidget {
                 image: const AssetImage(MImages.deliveredEmailIllustration),
               ),
               const SizedBox(
-                height: MSizes.spacedBetweenSections,
+                height: MSizes.spaceBetweenSections,
               ),
 
               /// Title & subTitle
@@ -49,7 +49,7 @@ class ResetPassword extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(
-                height: MSizes.spacedBetweenSections,
+                height: MSizes.spaceBetweenSections,
               ),
 
               /// Buttons

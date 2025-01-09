@@ -33,7 +33,7 @@ class VerifyEmailScreen extends StatelessWidget {
                 image: const AssetImage(MImages.verifyIllustration),
               ),
               const SizedBox(
-                height: MSizes.spacedBetweenSections,
+                height: MSizes.spaceBetweenSections,
               ),
 
               /// Title & subTitle
@@ -59,7 +59,7 @@ class VerifyEmailScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(
-                height: MSizes.spacedBetweenSections,
+                height: MSizes.spaceBetweenSections,
               ),
 
               /// Buttons
