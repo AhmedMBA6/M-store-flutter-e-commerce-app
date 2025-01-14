@@ -46,7 +46,7 @@ class MVerticalImageText extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: MSizes.spaceBetweenItems / 2,
+              height: MSizes.spaceBetweenItems / 4,
             ),
 
             /// Text

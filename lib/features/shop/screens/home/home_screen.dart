@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_splash_test1/utils/constants/image_strings.dart';
 import 'package:flutter_splash_test1/utils/constants/sizes.dart';
 import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
 import '../../../../common/widgets/custom_shapes/containers/search_container.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
 import 'widgets/home_appbar.dart';
 import 'widgets/home_categories.dart';
+import 'widgets/promo_slider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -54,6 +56,17 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
+
+            /// -- Body
+            Padding(
+                padding: EdgeInsets.all(MSizes.defaultSpace),
+                child: MPromoSlider(
+                  banners: [
+                    MImages.promoBanner1,
+                    MImages.promoBanner2,
+                    MImages.promoBanner3,
+                  ],
+                )),
           ],
         ),
       ),

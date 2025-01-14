@@ -18,7 +18,7 @@ class MHomeCategories extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemBuilder: (_, index) {
           return MVerticalImageText(
-            image: MImages.cosmeticsIcon,
+            image: MImages.sportIcon,
             title: 'Cosmetics',
             onTap: () {},
           );
