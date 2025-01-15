@@ -48,4 +48,26 @@ class MImages {
   static const String promoBanner1 = "assets/images/banners/Promo_banner1.jpg";
   static const String promoBanner2 = "assets/images/banners/promo-banner2.jpg";
   static const String promoBanner3 = "assets/images/banners/Promo_banner3.jpg";
+
+  /// -- Products
+  static const String productImage1 = "assets/images/products/1.jpg";
+  static const String productImage2 = "assets/images/products/2.jpg";
+  static const String productImage3 = "assets/images/products/3.jpg";
+  static const String productImage4 = "assets/images/products/4.jpg";
+  static const String productImage5 = "assets/images/products/6.jpg";
+  static const String productImage6 = "assets/images/products/9.jpg";
+  static const String productImage7 = "assets/images/products/10.jpg";
+  static const String productImage8 = "assets/images/products/12.jpg";
+  static const String productImage9 = "assets/images/products/14.jpg";
+  static const String productImage10 = "assets/images/products/16.jpg";
+  static const String productImage11 = "assets/images/products/18.jpg";
+  static const String productImage12 = "assets/images/products/20.jpg";
+  static const String productImage13 = "assets/images/products/21.jpg";
+  static const String productImage14 = "assets/images/products/22.jpg";
+  static const String productImage15 = "assets/images/products/291.jpg";
+  static const String productImage16 = "assets/images/products/shoes5.jpg";
+  static const String productImage17 = "assets/images/products/shoes4.jpg";
+  static const String productImage18 = "assets/images/products/shoes3.jpg";
+  static const String productImage19 = "assets/images/products/shoes2.jpg";
+  static const String productImage20 = "assets/images/products/shoes1.jpg";
 }

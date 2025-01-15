@@ -39,11 +39,11 @@ class MPromoSlider extends StatelessWidget {
                 for (int i = 0; i < banners.length; i++)
                   MCircularContainer(
                     width: 20,
-                    height: 15,
+                    height: 5,
                     backgroundColor: controller.carousalCurrentIndex.value == i
                         ? MColors.primary
                         : MColors.grey,
-                    margin: const EdgeInsets.only(right: 10),
+                    margin: const EdgeInsets.only(right: 8),
                   ),
               ],
             ),

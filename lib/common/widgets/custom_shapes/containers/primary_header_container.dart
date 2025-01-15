@@ -19,7 +19,7 @@ class MPrimaryHeaderContainer extends StatelessWidget {
         color: MColors.primary,
         padding: const EdgeInsets.only(bottom: 0),
         child: SizedBox(
-          height: 350,
+          height: 370,
           child: Stack(
             children: [
               /// -- Background Custom shapes

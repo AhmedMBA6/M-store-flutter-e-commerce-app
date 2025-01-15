@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_splash_test1/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:flutter_splash_test1/utils/constants/image_strings.dart';
 import 'package:flutter_splash_test1/utils/constants/sizes.dart';
 import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
 import '../../../../common/widgets/custom_shapes/containers/search_container.dart';
+import '../../../../common/widgets/layouts/grid_layout.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
 import 'widgets/home_appbar.dart';
 import 'widgets/home_categories.dart';
@@ -13,12 +15,12 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
             /// Header
-            MPrimaryHeaderContainer(
+            const MPrimaryHeaderContainer(
               child: Column(
                 children: [
                   /// -- AppBar --
@@ -59,12 +61,26 @@ class HomeScreen extends StatelessWidget {
 
             /// -- Body
             Padding(
-                padding: EdgeInsets.all(MSizes.defaultSpace),
-                child: MPromoSlider(
-                  banners: [
-                    MImages.promoBanner1,
-                    MImages.promoBanner2,
-                    MImages.promoBanner3,
+                padding: const EdgeInsets.all(MSizes.defaultSpace),
+                child: Column(
+                  children: [
+                    /// --Promo slider
+                    const MPromoSlider(
+                      banners: [
+                        MImages.promoBanner1,
+                        MImages.promoBanner2,
+                        MImages.promoBanner3,
+                      ],
+                    ),
+                    const SizedBox(
+                      height: MSizes.spaceBetweenSections,
+                    ),
+
+                    /// --Popular Products
+                    MGridLayout(
+                      itemCount: 5,
+                      itemBuilder: (_, index) => const MProductCardVertical(),
+                    ),
                   ],
                 )),
           ],
