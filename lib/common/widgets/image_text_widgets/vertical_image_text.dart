@@ -9,13 +9,13 @@ class MVerticalImageText extends StatelessWidget {
     super.key,
     required this.image,
     required this.title,
-    this.textColor = MColors.white,
+    this.textColor,
     this.backgroundColor,
     this.onTap,
   });
 
   final String image, title;
-  final Color textColor;
+  final Color? textColor;
   final Color? backgroundColor;
   final void Function()? onTap;
 
@@ -54,10 +54,8 @@ class MVerticalImageText extends StatelessWidget {
               width: 55,
               child: Text(
                 title,
-                style: Theme.of(context)
-                    .textTheme
-                    .labelMedium!
-                    .apply(color: textColor),
+                style: Theme.of(context).textTheme.labelMedium!.apply(
+                    color: textColor ?? (dark ? MColors.white : MColors.black)),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),

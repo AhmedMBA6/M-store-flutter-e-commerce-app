@@ -49,6 +49,9 @@ class MImages {
   static const String promoBanner2 = "assets/images/banners/promo-banner2.jpg";
   static const String promoBanner3 = "assets/images/banners/Promo_banner3.jpg";
 
+  /// -- Profile
+  static const String user = "assets/images/user/dash-person.png";
+
   /// -- Products
   static const String productImage1 = "assets/images/products/1.jpg";
   static const String productImage2 = "assets/images/products/2.jpg";

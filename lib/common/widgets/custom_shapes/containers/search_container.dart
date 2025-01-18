@@ -13,17 +13,19 @@ class MSearchContainer extends StatelessWidget {
     this.icon = Iconsax.search_normal,
     this.showBackground = true,
     this.showBorder = true,
+    this.padding = const EdgeInsets.symmetric(horizontal: MSizes.defaultSpace),
   });
 
   final String text;
   final IconData? icon;
   final bool showBackground, showBorder;
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
     final dark = MHelperFunctions.isDarkMode(context);
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: MSizes.defaultSpace),
+      padding: padding,
       child: Container(
         width: MDeviceUtilities.getScreenWidth(context),
         padding: const EdgeInsets.all(MSizes.md),
@@ -43,7 +45,7 @@ class MSearchContainer extends StatelessWidget {
               color: MColors.darkGrey,
             ),
             const SizedBox(
-              height: MSizes.spaceBetweenItems,
+              width: MSizes.spaceBetweenItems,
             ),
             Text(
               text,

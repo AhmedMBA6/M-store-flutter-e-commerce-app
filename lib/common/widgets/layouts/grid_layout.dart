@@ -21,11 +21,11 @@ class MGridLayout extends StatelessWidget {
       padding: EdgeInsets.zero,
       itemCount: itemCount,
       shrinkWrap: true,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         mainAxisSpacing: MSizes.gridViewSpacing,
         crossAxisSpacing: MSizes.gridViewSpacing,
-        mainAxisExtent: 288,
+        mainAxisExtent: mainAxisExtent,
       ),
       itemBuilder: itemBuilder,
     );

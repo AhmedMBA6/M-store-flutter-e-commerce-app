@@ -10,6 +10,7 @@ import 'package:flutter_splash_test1/utils/helpers/helper_functions.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../icons/circular_icon.dart';
+import '../../texts/brand_title_with_verified_icon.dart';
 import '../../texts/product_price_text.dart';
 
 class MProductCardVertical extends StatelessWidget {
@@ -79,65 +80,59 @@ class MProductCardVertical extends StatelessWidget {
             ),
 
             /// --Details
-            Padding(
-              padding: const EdgeInsets.only(left: MSizes.sm),
+            const Padding(
+              padding: EdgeInsets.only(left: MSizes.sm),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const MProductTitleText(
+                  MProductTitleText(
                     title: "stylish sweet shirt",
                     smallSize: true,
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: MSizes.spaceBetweenItems / 2,
                   ),
-                  Row(
-                    children: [
-                      Text(
-                        "M",
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                        style: Theme.of(context).textTheme.labelMedium,
-                      ),
-                      const Icon(
-                        Iconsax.verify5,
-                        color: MColors.primary,
-                        size: MSizes.iconXs,
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      /// price
-                      const MProductPriceText(
-                        price: '35.5',
-                      ),
-
-                      /// Add to cart button
-                      Container(
-                        decoration: const BoxDecoration(
-                            color: MColors.dark,
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(MSizes.cardRadiusMd),
-                                bottomRight: Radius.circular(
-                                    MSizes.productImageRaduis))),
-                        child: const SizedBox(
-                          width: MSizes.iconLg * 1.2,
-                          height: MSizes.iconLg * 1.2,
-                          child: Center(
-                            child: Icon(
-                              Iconsax.add,
-                              color: MColors.white,
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
+                  MBrandTitleWithVerifiedIcon(
+                    title: 'M',
                   ),
                 ],
               ),
-            )
+            ),
+            const Spacer(),
+
+            /// Price Row
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                /// price
+                const Padding(
+                  padding: EdgeInsets.only(right: MSizes.sm),
+                  child: MProductPriceText(
+                    price: '35.5',
+                  ),
+                ),
+
+                /// Add to cart button
+                Container(
+                  decoration: const BoxDecoration(
+                      color: MColors.dark,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(MSizes.cardRadiusMd),
+                          bottomRight:
+                              Radius.circular(MSizes.productImageRaduis))),
+                  child: const SizedBox(
+                    width: MSizes.iconLg * 1.2,
+                    height: MSizes.iconLg * 1.2,
+                    child: Center(
+                      child: Icon(
+                        Iconsax.add,
+                        color: MColors.white,
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
           ],
         ),
       ),

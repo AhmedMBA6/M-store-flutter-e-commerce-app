@@ -44,7 +44,6 @@ class HomeScreen extends StatelessWidget {
                         MSectionHeading(
                           title: 'Popular Categories',
                           showActionButton: false,
-                          textColor: Colors.white,
                         ),
                         SizedBox(
                           height: MSizes.spaceBetweenItems,
@@ -54,6 +53,10 @@ class HomeScreen extends StatelessWidget {
                         MHomeCategories(),
                       ],
                     ),
+                  ),
+
+                  SizedBox(
+                    height: MSizes.spaceBetweenSections,
                   )
                 ],
               ),
@@ -74,6 +77,15 @@ class HomeScreen extends StatelessWidget {
                     ),
                     const SizedBox(
                       height: MSizes.spaceBetweenSections,
+                    ),
+
+                    /// --Heading
+                    MSectionHeading(
+                      title: 'Popular Products',
+                      onPressed: () {},
+                    ),
+                    const SizedBox(
+                      height: MSizes.spaceBetweenItems,
                     ),
 
                     /// --Popular Products
