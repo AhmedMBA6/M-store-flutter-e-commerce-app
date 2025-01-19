@@ -4,10 +4,10 @@ import 'package:flutter_splash_test1/common/widgets/custom_shapes/curved_edges/c
 class MCurvedEdgeWidget extends StatelessWidget {
   const MCurvedEdgeWidget({
     super.key,
-    this.child,
+    required this.child,
   });
 
-  final Widget? child;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {

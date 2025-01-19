@@ -31,6 +31,9 @@ dependencies:
   get_storage: ^2.1.1
 
   # Product Specific
+  readmore: ^3.0.0
+
+  # Product Specific
   flutter_translate: ^4.1.0
   page_transition: ^2.1.0
   simple_animations: ^5.0.2

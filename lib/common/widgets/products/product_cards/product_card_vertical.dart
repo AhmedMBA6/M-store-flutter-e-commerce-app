@@ -3,10 +3,12 @@ import 'package:flutter_splash_test1/common/stylies/shadows.dart';
 import 'package:flutter_splash_test1/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:flutter_splash_test1/common/widgets/images/rounded_images.dart';
 import 'package:flutter_splash_test1/common/widgets/texts/product_title_text.dart';
+import 'package:flutter_splash_test1/features/shop/screens/product_details/product_detail_screen.dart';
 import 'package:flutter_splash_test1/utils/constants/colors.dart';
 import 'package:flutter_splash_test1/utils/constants/image_strings.dart';
 import 'package:flutter_splash_test1/utils/constants/sizes.dart';
 import 'package:flutter_splash_test1/utils/helpers/helper_functions.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../icons/circular_icon.dart';
@@ -22,7 +24,7 @@ class MProductCardVertical extends StatelessWidget {
 
     /// Container with side paddings, color, edge, radius and shadow
     return GestureDetector(
-      onTap: () {},
+      onTap: () => Get.to(() => const ProductDetailScreen()),
       child: Container(
         width: 100,
         padding: const EdgeInsets.all(1),
