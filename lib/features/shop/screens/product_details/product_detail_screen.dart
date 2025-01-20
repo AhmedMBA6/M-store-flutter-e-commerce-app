@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_splash_test1/common/widgets/texts/section_heading.dart';
 import 'package:flutter_splash_test1/features/shop/screens/product_details/widgets/product_attributes.dart';
 import 'package:flutter_splash_test1/features/shop/screens/product_details/widgets/product_meta_data.dart';
+import 'package:flutter_splash_test1/features/shop/screens/product_reviews/product_reviews_screen.dart';
+import 'package:flutter_splash_test1/utils/constants/colors.dart';
 import 'package:flutter_splash_test1/utils/constants/sizes.dart';
+import 'package:flutter_splash_test1/utils/helpers/helper_functions.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
 
@@ -78,17 +82,22 @@ class ProductDetailScreen extends StatelessWidget {
                     height: MSizes.spaceBetweenItems,
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const MSectionHeading(
                         title: "Reviews(200)",
                         showActionButton: false,
                       ),
                       IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Iconsax.arrow_right3,
+                          onPressed: () =>
+                              Get.to(() => const ProductReviewsScreen()),
+                          icon: Icon(
+                            Iconsax.arrow_right_1,
                             size: 18,
-                          ))
+                            color: MHelperFunctions.isDarkMode(context)
+                                ? MColors.white
+                                : MColors.black,
+                          )),
                     ],
                   ),
                   const SizedBox(

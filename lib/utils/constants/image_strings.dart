@@ -49,6 +49,14 @@ class MImages {
   static const String promoBanner2 = "assets/images/banners/promo-banner2.jpg";
   static const String promoBanner3 = "assets/images/banners/Promo_banner3.jpg";
 
+  /// -- Product Reveiws
+  static const String userProfileImage1 =
+      "assets/images/reviews/review_profile_image_1.png";
+  static const String userProfileImage2 =
+      "assets/images/reviews/review_profile_image_2.png";
+  static const String userProfileImage3 =
+      "assets/images/reviews/review_profile_image_3.png";
+
   /// -- Profile
   static const String user = "assets/images/user/dash-person.png";
 

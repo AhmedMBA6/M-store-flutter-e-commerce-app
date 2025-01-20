@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_splash_test1/common/widgets/appbar/appbar.dart';
 import 'package:flutter_splash_test1/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:flutter_splash_test1/common/widgets/texts/section_heading.dart';
+import 'package:flutter_splash_test1/features/personalization/screens/address/address_screen.dart';
 import 'package:flutter_splash_test1/features/personalization/screens/settings/widgets/settings_menu_tile.dart';
 import 'package:flutter_splash_test1/utils/constants/colors.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../common/widgets/list_tile/user_profile_tile.dart';
@@ -61,7 +63,7 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.safe_home,
                     title: 'My Addresses',
                     subTitle: "Set shipping delivery address",
-                    onTap: () {},
+                    onTap: () => Get.to(() => const UserAddressScreen()),
                   ),
                   MSettingsMenuTile(
                     icon: Iconsax.shopping_cart,
