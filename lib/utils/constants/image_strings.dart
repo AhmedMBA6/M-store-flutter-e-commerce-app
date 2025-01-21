@@ -57,6 +57,17 @@ class MImages {
   static const String userProfileImage3 =
       "assets/images/reviews/review_profile_image_3.png";
 
+  /// -- Payment Methods
+  static const String applePay = "assets/icons/payment_methods/apple-pay.png";
+  static const String googlePay = "assets/icons/payment_methods/google-pay.png";
+  static const String creditCard =
+      "assets/icons/payment_methods/credit-card.png";
+  static const String visaPay = "assets/icons/payment_methods/visa.png";
+  static const String masterCard = "assets/icons/payment_methods/card.png";
+  static const String payPalPay = "assets/icons/payment_methods/paypal.png";
+  static const String successfulPayment =
+      "assets/icons/payment_methods/success.png";
+
   /// -- Profile
   static const String user = "assets/images/user/dash-person.png";
 
