@@ -4,9 +4,11 @@ import 'package:flutter_splash_test1/common/widgets/custom_shapes/containers/sea
 import 'package:flutter_splash_test1/common/widgets/layouts/grid_layout.dart';
 import 'package:flutter_splash_test1/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:flutter_splash_test1/common/widgets/texts/section_heading.dart';
+import 'package:flutter_splash_test1/features/shop/screens/brands/all_brands_screen.dart';
 import 'package:flutter_splash_test1/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:flutter_splash_test1/utils/constants/sizes.dart';
 import 'package:flutter_splash_test1/utils/helpers/helper_functions.dart';
+import 'package:get/get.dart';
 
 import '../../../../common/widgets/appbar/tab_bar.dart';
 import '../../../../common/widgets/brands/brand_card.dart';
@@ -64,7 +66,8 @@ class StoreScreen extends StatelessWidget {
                         /// -- Featured Brands
                         MSectionHeading(
                           title: 'Featured Brand',
-                          onPressed: () {},
+                          onPressed: () =>
+                              Get.to(() => const AllBrandsScreen()),
                         ),
                         const SizedBox(
                           height: MSizes.spaceBetweenItems / 1.5,

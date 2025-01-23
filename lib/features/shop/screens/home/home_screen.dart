@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_splash_test1/common/widgets/products/product_cards/product_card_vertical.dart';
+import 'package:flutter_splash_test1/features/shop/screens/all_products/all_products_screen.dart';
 import 'package:flutter_splash_test1/utils/constants/image_strings.dart';
 import 'package:flutter_splash_test1/utils/constants/sizes.dart';
+import 'package:get/get.dart';
 import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
 import '../../../../common/widgets/custom_shapes/containers/search_container.dart';
 import '../../../../common/widgets/layouts/grid_layout.dart';
@@ -82,7 +84,7 @@ class HomeScreen extends StatelessWidget {
                     /// --Heading
                     MSectionHeading(
                       title: 'Popular Products',
-                      onPressed: () {},
+                      onPressed: () => Get.to(() => const AllProductsScreen()),
                     ),
                     const SizedBox(
                       height: MSizes.spaceBetweenItems,

@@ -4,6 +4,8 @@ import 'package:flutter_splash_test1/common/widgets/custom_shapes/containers/pri
 import 'package:flutter_splash_test1/common/widgets/texts/section_heading.dart';
 import 'package:flutter_splash_test1/features/personalization/screens/address/address_screen.dart';
 import 'package:flutter_splash_test1/features/personalization/screens/settings/widgets/settings_menu_tile.dart';
+import 'package:flutter_splash_test1/features/shop/screens/cart/cart_screen.dart';
+import 'package:flutter_splash_test1/features/shop/screens/orders/order_screen.dart';
 import 'package:flutter_splash_test1/utils/constants/colors.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -69,13 +71,13 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.shopping_cart,
                     title: 'My Cart',
                     subTitle: "add, remove products and move to checkout",
-                    onTap: () {},
+                    onTap: () => Get.to(() => const CartScreen()),
                   ),
                   MSettingsMenuTile(
                     icon: Iconsax.bag_tick,
                     title: 'My Orders',
                     subTitle: "In-Progress and completed Orders",
-                    onTap: () {},
+                    onTap: () => Get.to(() => const OrderScreen()),
                   ),
                   MSettingsMenuTile(
                     icon: Iconsax.bank,
