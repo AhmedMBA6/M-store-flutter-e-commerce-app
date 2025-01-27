@@ -1,4 +1,12 @@
 class MValidator {
+  /// Empty text validation
+  static String? validateEmptyText(String? fieldName, String? value) {
+    if (value == null || value.isEmpty) {
+      return '$fieldName is required.';
+    }
+    return null;
+  }
+
   static String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
       return 'Email is required';
@@ -19,7 +27,7 @@ class MValidator {
     }
 
     // Check for minimum password length
-    if (value.length < 6 ) {
+    if (value.length < 6) {
       return 'Password must be at least 6 characters long.';
     }
 
@@ -27,7 +35,6 @@ class MValidator {
     if (!value.contains(RegExp(r'[A-Z]'))) {
       return 'Password must contain at least one uppercase letter.';
     }
-
 
     // Check for numbers
     if (!value.contains(RegExp(r'[0-9]'))) {

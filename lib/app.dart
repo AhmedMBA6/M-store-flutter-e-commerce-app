@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_splash_test1/features/authentication/screens/onboarding/onboarding_screen.dart';
+import 'package:flutter_splash_test1/bindings/general_bindings.dart';
+import 'package:flutter_splash_test1/utils/constants/colors.dart';
 import 'package:flutter_splash_test1/utils/theme/theme.dart';
 import 'package:get/get.dart';
 
@@ -14,7 +15,17 @@ class App extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: MAppTheme.lightTheme,
       darkTheme: MAppTheme.darkTheme,
-      home: const OnBoardingScreen(),
+      initialBinding: GeneralBindings(),
+
+      /// Show Loader or circular Progress indecator meanwhile authentication repo is deciding to show relevant screen
+      home: const Scaffold(
+        backgroundColor: MColors.primary,
+        body: Center(
+          child: CircularProgressIndicator(
+            color: Colors.white,
+          ),
+        ),
+      ),
     );
   }
 }

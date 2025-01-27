@@ -24,6 +24,7 @@ class MImages {
       "assets/images/animations/verify-email.gif";
   static const String deliveredEmailIllustration =
       "assets/images/animations/delivered-email-illustration.gif";
+  static const String decorAnimation = "assets/images/animations/Animation.gif";
 
   // -- Category Icons
   static const String sportIcon =

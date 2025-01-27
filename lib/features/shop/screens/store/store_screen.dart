@@ -13,6 +13,7 @@ import 'package:get/get.dart';
 import '../../../../common/widgets/appbar/tab_bar.dart';
 import '../../../../common/widgets/brands/brand_card.dart';
 import '../../../../utils/constants/colors.dart';
+import '../brands/brand_products.dart';
 
 class StoreScreen extends StatelessWidget {
   const StoreScreen({super.key});
@@ -78,8 +79,10 @@ class StoreScreen extends StatelessWidget {
                             itemCount: 4,
                             mainAxisExtent: 80,
                             itemBuilder: (_, index) {
-                              return const MBrandCard(
+                              return MBrandCard(
                                 showBorder: true,
+                                onTap: () =>
+                                    Get.to(() => const BrandProducts()),
                               );
                             })
                       ],
