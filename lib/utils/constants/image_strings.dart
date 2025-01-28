@@ -17,7 +17,7 @@ class MImages {
   static const String onBoardingImage3 =
       "assets/images/on_boarding_images/on-boarding-delivery.gif";
 
-  // -- Animations
+  // -- Lottie Animations
   static const String staticSuccessIllustration =
       "assets/images/animations/successfully-acountcreated.gif";
   static const String verifyIllustration =

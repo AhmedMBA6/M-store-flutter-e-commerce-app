@@ -36,7 +36,7 @@ class SignupController extends GetxController {
       // check internet connection
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
-         MFullScreenLoader.stopLoading();
+        MFullScreenLoader.stopLoading();
       }
 
       // form validation
@@ -80,7 +80,9 @@ class SignupController extends GetxController {
               "your account has been created! Verify your email to continue.");
 
       // move to verify email screen
-      Get.to(() => const VerifyEmailScreen());
+      Get.to(() => VerifyEmailScreen(
+            email: email.text.trim(),
+          ));
     } catch (e) {
       // Show some Generic error to the user
       MLoaders.errorSnackBar(title: "no Snap!", message: e.toString());
