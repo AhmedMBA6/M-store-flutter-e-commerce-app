@@ -51,17 +51,22 @@ class VerifyEmailController extends GetxController {
   }
 
   /// Manually check if Email Verified
-  checkEmailVerificationStatus() async{
+  checkEmailVerificationStatus() async {
     final currentUser = FirebaseAuth.instance.currentUser;
     if (currentUser != null && currentUser.emailVerified) {
       Get.off(
-          () => SuccessScreen(
-            image: MImages.staticSuccessIllustration,
-            title: MTexts.yourAccountCreatedTitle,
-            subTitle: MTexts.yourAccountCreatedSubTitle,
-            onPressed: () => AuthenticationRepository.instance.screenRedirect(),
-          ),
-        );
+        () => SuccessScreen(
+          image: MImages.staticSuccessIllustration,
+          title: MTexts.yourAccountCreatedTitle,
+          subTitle: MTexts.yourAccountCreatedSubTitle,
+          onPressed: () => AuthenticationRepository.instance.screenRedirect(),
+        ),
+      );
+    } else {
+      MLoaders.errorSnackBar(
+          title: "Verify your email",
+          message:
+              "You should verify your email first and after that click continue.");
     }
   }
 }

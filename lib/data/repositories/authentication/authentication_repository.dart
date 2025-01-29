@@ -11,6 +11,7 @@ import 'package:flutter_splash_test1/utils/exceptions/format_exceptions.dart';
 import 'package:flutter_splash_test1/utils/exceptions/platform_exceptions.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
@@ -30,9 +31,12 @@ class AuthenticationRepository extends GetxController {
   screenRedirect() async {
     final user = _auth.currentUser;
     if (user != null) {
+      // if the user is logged in
       if (user.emailVerified) {
+        // if the user's email is verified, navigate to the main Navigation menu.
         Get.offAll(() => const NavigationMenu());
       } else {
+        // if the user's email is not verified, navigate to the VerifyEmailScreen.
         Get.offAll(() => VerifyEmailScreen(
               email: _auth.currentUser?.email,
             ));
@@ -52,6 +56,23 @@ class AuthenticationRepository extends GetxController {
   /* ----------------------------------------Email & Password Sign-in -------------------------------------*/
 
   /// [Email Authentication] - sign-in
+  Future<UserCredential> loginWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      return await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
+    } on FirebaseAuthException catch (e) {
+      throw MFirebaseAuthExceptions(e.code).message;
+    } on FirebaseException catch (e) {
+      throw MFirebaseExceptions(e.code).message;
+    } on FormatException catch (_) {
+      throw const MFormatExceptions();
+    } on PlatformException catch (e) {
+      throw MPlatformExceptions(e.code).message;
+    } catch (e) {
+      throw "Somthing went wrong, please try again";
+    }
+  }
 
   /// [Email Authentication] - rigister
   Future<UserCredential> registerWithEmailAndPassword(
@@ -96,6 +117,33 @@ class AuthenticationRepository extends GetxController {
   /* ----------------------------------------Federated identity & social sign-in -------------------------------------*/
 
   /// [Google Authentication] - Google
+  Future<UserCredential> signInWithGoogle() async {
+    try {
+      // Triger the authentication flow
+      final GoogleSignInAccount? userAccount = await GoogleSignIn().signIn();
+
+      // Obtain the auth details from the request
+      final GoogleSignInAuthentication? googleAuth =
+          await userAccount?.authentication;
+
+      // Create a new credential
+      final credentials = GoogleAuthProvider.credential(
+          accessToken: googleAuth?.accessToken, idToken: googleAuth?.idToken);
+
+      // Once signed in, return the user credential
+      return await _auth.signInWithCredential(credentials);
+    } on FirebaseAuthException catch (e) {
+      throw MFirebaseAuthExceptions(e.code).message;
+    } on FirebaseException catch (e) {
+      throw MFirebaseExceptions(e.code).message;
+    } on FormatException catch (_) {
+      throw const MFormatExceptions();
+    } on PlatformException catch (e) {
+      throw MPlatformExceptions(e.code).message;
+    } catch (e) {
+      throw "Somthing went wrong, please try again";
+    }
+  }
 
   /// [Facebook Authentication] - Facebook
 
@@ -104,6 +152,7 @@ class AuthenticationRepository extends GetxController {
   /// [Logout User]
   Future<void> logout() async {
     try {
+      await GoogleSignIn().signOut();
       await FirebaseAuth.instance.signOut();
       Get.offAll(() => const LoginScreen());
     } on FirebaseAuthException catch (e) {

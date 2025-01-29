@@ -26,7 +26,7 @@ class NetworkManager extends GetxController {
   Future<void> _updateConnectionStatus(ConnectivityResult result) async {
     _connectionStatus.value = result;
     if (_connectionStatus.value == ConnectivityResult.none) {
-      MLoaders.warningSnackBar(title: "No Internet Connection");
+      MLoaders.customToast(message: "No Internet Connection");
     }
   }
 
@@ -35,7 +35,11 @@ class NetworkManager extends GetxController {
   Future<bool> isConnected() async {
     try {
       final result = await _connectivity.checkConnectivity();
-      return result == ConnectivityResult.none;
+      if (result == ConnectivityResult.none) {
+        return true;
+      } else {
+        return false;
+      }
     } on PlatformException catch (_) {
       return false;
     }
@@ -44,7 +48,7 @@ class NetworkManager extends GetxController {
   /// Dispose or close the active connectivity stream
   @override
   void onClose() {
-    _connectivitySubscription.cancel();
     super.onClose();
+    _connectivitySubscription.cancel();
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_splash_test1/common/widgets/appbar/appbar.dart';
 import 'package:flutter_splash_test1/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:flutter_splash_test1/common/widgets/texts/section_heading.dart';
+import 'package:flutter_splash_test1/data/repositories/authentication/authentication_repository.dart';
 import 'package:flutter_splash_test1/features/personalization/screens/address/address_screen.dart';
 import 'package:flutter_splash_test1/features/personalization/screens/settings/widgets/settings_menu_tile.dart';
 import 'package:flutter_splash_test1/features/shop/screens/cart/cart_screen.dart';
@@ -148,7 +149,9 @@ class SettingsScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: OutlinedButton(
-                        onPressed: () {}, child: const Text('LogOut')),
+                        onPressed: () =>
+                            AuthenticationRepository.instance.logout(),
+                        child: const Text('LogOut')),
                   ),
                   const SizedBox(
                     height: MSizes.spaceBetweenSections * 2,

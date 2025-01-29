@@ -28,8 +28,12 @@ class MPlatformExceptions implements Exception {
         return 'Internal error, please try again later';
       case 'invalid-verification-code':
         return 'Invalid verification code, please enter a valid code.';
+      case 'invalid-verification-id':
+        return 'Invalid verification ID, please request a new verification code.';
+      case 'quota-exceeded':
+        return 'Quota exceeded, please try again later.';
       default:
-        return code.toString();
+        return 'An unexpected platform error occurred, please try again.';
     }
   }
 }
