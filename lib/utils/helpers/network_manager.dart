@@ -36,9 +36,9 @@ class NetworkManager extends GetxController {
     try {
       final result = await _connectivity.checkConnectivity();
       if (result == ConnectivityResult.none) {
-        return true;
-      } else {
         return false;
+      } else {
+        return true;
       }
     } on PlatformException catch (_) {
       return false;

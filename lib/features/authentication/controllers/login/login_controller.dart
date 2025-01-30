@@ -32,7 +32,7 @@ class LoginController extends GetxController {
 
       // Check internet connection
       final isConnect = await NetworkManager.instance.isConnected();
-      if (isConnect) {
+      if (!isConnect) {
         MFullScreenLoader.stopLoading();
         return;
       }
@@ -73,7 +73,7 @@ class LoginController extends GetxController {
 
       // check internet connection
       final isConnected = await NetworkManager.instance.isConnected();
-      if (isConnected) {
+      if (!isConnected) {
         MFullScreenLoader.stopLoading();
         return;
       }

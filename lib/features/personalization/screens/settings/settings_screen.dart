@@ -4,6 +4,7 @@ import 'package:flutter_splash_test1/common/widgets/custom_shapes/containers/pri
 import 'package:flutter_splash_test1/common/widgets/texts/section_heading.dart';
 import 'package:flutter_splash_test1/data/repositories/authentication/authentication_repository.dart';
 import 'package:flutter_splash_test1/features/personalization/screens/address/address_screen.dart';
+import 'package:flutter_splash_test1/features/personalization/screens/profile/profile_screen.dart';
 import 'package:flutter_splash_test1/features/personalization/screens/settings/widgets/settings_menu_tile.dart';
 import 'package:flutter_splash_test1/features/shop/screens/cart/cart_screen.dart';
 import 'package:flutter_splash_test1/features/shop/screens/orders/order_screen.dart';
@@ -41,7 +42,9 @@ class SettingsScreen extends StatelessWidget {
                 ),
 
                 /// --User Profile Card
-                const MUserProfileTile(),
+                MUserProfileTile(
+                  onPressed: () => Get.to(() => const ProfileScreen()),
+                ),
                 const SizedBox(
                   height: MSizes.spaceBetweenSections,
                 ),

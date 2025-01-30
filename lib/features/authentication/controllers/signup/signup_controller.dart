@@ -40,10 +40,15 @@ class SignupController extends GetxController {
       }
 
       // form validation
-      if (!signupFormkey.currentState!.validate()) return;
+      if (!signupFormkey.currentState!.validate()) {
+         MFullScreenLoader.stopLoading();
+        return;}
 
       // privacy policy check
+
       if (!privacyPolicy.value) {
+        // Remove loader
+        MFullScreenLoader.stopLoading();
         MLoaders.warningSnackBar(
             title: "Accept Privacy Policy",
             message:
@@ -84,6 +89,8 @@ class SignupController extends GetxController {
             email: email.text.trim(),
           ));
     } catch (e) {
+      // Remove Loader
+      MFullScreenLoader.stopLoading();
       // Show some Generic error to the user
       MLoaders.errorSnackBar(title: "no Snap!", message: e.toString());
     }

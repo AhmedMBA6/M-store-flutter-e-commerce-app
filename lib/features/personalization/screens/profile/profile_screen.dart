@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_splash_test1/common/widgets/appbar/appbar.dart';
 import 'package:flutter_splash_test1/common/widgets/images/circular_image.dart';
 import 'package:flutter_splash_test1/common/widgets/texts/section_heading.dart';
+import 'package:flutter_splash_test1/features/personalization/controllers/user_controller.dart';
+import 'package:flutter_splash_test1/features/personalization/screens/profile/widgets/change_name.dart';
+import 'package:flutter_splash_test1/features/personalization/screens/settings/settings_screen.dart';
+import 'package:flutter_splash_test1/navigation_menu.dart';
 import 'package:flutter_splash_test1/utils/constants/sizes.dart';
+import 'package:flutter_splash_test1/utils/helpers/helper_functions.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/image_strings.dart';
 import 'widgets/profile_menu.dart';
 
@@ -13,10 +19,17 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = MHelperFunctions.isDarkMode(context);
+    final controller = Get.put(UserController());
     return Scaffold(
-      appBar: const MAppbar(
-        showBackArrow: true,
-        title: Text("Profile"),
+      appBar: AppBar(
+        leading: IconButton(
+            onPressed: () => Get.to(() => const NavigationMenu()),
+            icon: Icon(
+              Iconsax.arrow_left,
+              color: dark ? MColors.white : MColors.dark,
+            )),
+        title: const Text("Profile"),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -58,12 +71,12 @@ class ProfileScreen extends StatelessWidget {
 
               MProfileMenu(
                 title: 'Name',
-                value: 'Ahmed Muhammed',
-                onPressed: () {},
+                value: controller.user.value.fullName,
+                onPressed: () => Get.to(() => const ChangeName()),
               ),
               MProfileMenu(
                 title: 'Username',
-                value: 'Ahmed_bauiomy3',
+                value: controller.user.value.userName,
                 onPressed: () {},
               ),
 
@@ -86,18 +99,18 @@ class ProfileScreen extends StatelessWidget {
 
               MProfileMenu(
                 title: 'User ID',
-                value: '1',
+                value: controller.user.value.id,
                 icon: Iconsax.copy,
                 onPressed: () {},
               ),
               MProfileMenu(
                 title: 'E-mail',
-                value: 'ahmed.bauiomy17@gmail.com',
+                value: controller.user.value.email,
                 onPressed: () {},
               ),
               MProfileMenu(
                 title: 'Phone Number',
-                value: '01025860162',
+                value: controller.user.value.phoneNumber,
                 onPressed: () {},
               ),
               MProfileMenu(
@@ -117,7 +130,7 @@ class ProfileScreen extends StatelessWidget {
 
               Center(
                 child: TextButton(
-                    onPressed: () {},
+                    onPressed: () => controller.deleteAccounteWarningPopup(),
                     child: const Text(
                       "Close Account",
                       style: TextStyle(color: Colors.red),
