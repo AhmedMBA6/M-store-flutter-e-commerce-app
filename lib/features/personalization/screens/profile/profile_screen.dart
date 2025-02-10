@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_splash_test1/common/widgets/images/circular_image.dart';
+import 'package:flutter_splash_test1/common/widgets/shimmers/shimmer.dart';
 import 'package:flutter_splash_test1/common/widgets/texts/section_heading.dart';
 import 'package:flutter_splash_test1/features/personalization/controllers/user_controller.dart';
+import 'package:flutter_splash_test1/features/personalization/screens/profile/test_cloudinary_storage_screen.dart';
 import 'package:flutter_splash_test1/features/personalization/screens/profile/widgets/change_name.dart';
-import 'package:flutter_splash_test1/features/personalization/screens/settings/settings_screen.dart';
 import 'package:flutter_splash_test1/navigation_menu.dart';
 import 'package:flutter_splash_test1/utils/constants/sizes.dart';
 import 'package:flutter_splash_test1/utils/helpers/helper_functions.dart';
@@ -41,13 +42,26 @@ class ProfileScreen extends StatelessWidget {
                 width: double.infinity,
                 child: Column(
                   children: [
-                    const MCircularImage(
-                      image: MImages.user,
-                      width: 80,
-                      height: 80,
-                    ),
+                    Obx(() {
+                      final networkImage = controller.user.value.profilePicture;
+                      final image =
+                          networkImage.isNotEmpty ? networkImage : MImages.user;
+
+                      return controller.imageUploading.value
+                          ? const MShimmerEffect(
+                              width: 80,
+                              height: 80,
+                              radius: 80,
+                            )
+                          : MCircularImage(
+                              image: image,
+                              width: 80,
+                              height: 80,
+                              isNetworkImage: networkImage.isNotEmpty,
+                            );
+                    }),
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () => controller.uploadUserProfilePicture(),
                         child: const Text("Change Profile picture"))
                   ],
                 ),
@@ -77,7 +91,8 @@ class ProfileScreen extends StatelessWidget {
               MProfileMenu(
                 title: 'Username',
                 value: controller.user.value.userName,
-                onPressed: () {},
+                onPressed: () =>
+                    Get.to(() => const TestCloudinaryStorageScreen()),
               ),
 
               const SizedBox(

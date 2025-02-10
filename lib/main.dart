@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_splash_test1/app.dart';
 import 'package:get/get.dart';
@@ -25,6 +26,9 @@ void main() async {
       .then(
     (FirebaseApp value) => Get.put(AuthenticationRepository()),
   );
+
+  /// -- Initialize .env file
+  await dotenv.load(fileName: ".env");
 
   runApp(const App());
 }

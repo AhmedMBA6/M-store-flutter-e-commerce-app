@@ -1,7 +1,15 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_splash_test1/data/repositories/authentication/authentication_repository.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
+import 'package:image_picker/image_picker.dart';
 
 import '../../../features/authentication/models/user_model.dart';
 import '../../../utils/exceptions/firebase_exceptions.dart';
@@ -102,5 +110,67 @@ class UserRepository extends GetxController {
     }
   }
 
-  /// upload any image
+  /// upload image using cloudinary storage
+  Future<String> uploadImageC(FilePickerResult filePickerResult) async {
+    try {
+      File file = File(filePickerResult.files.single.path!);
+
+      String cloudName = dotenv.env['CLOUDINARY_CLOUD_NAME'] ?? '';
+
+      // create a multipartRequest to upload the file
+      var uri =
+          Uri.parse("https://api.cloudinary.com/v1_1/$cloudName/raw/upload");
+      var request = http.MultipartRequest("POST", uri);
+
+      // read the file content as bytes
+      var fileBytes = await file.readAsBytes();
+      var multipartFile = http.MultipartFile.fromBytes(
+        'file', // The formfield name for the file
+        fileBytes,
+        filename:
+            file.path.split("/").last, // The file name to send in the request
+      );
+
+      // Add the file part to the request
+      request.files.add(multipartFile);
+
+      request.fields['upload_preset'] = "preset-for-file-upload";
+      request.fields['resource_type'] = "raw";
+
+      // send the request and await the response
+      var response = await request.send();
+
+      // Get the response as text
+      var responseBody = await response.stream.bytesToString();
+      var jsonMap = jsonDecode(responseBody);
+      final url = jsonMap['url'];
+      return url;
+    } on FirebaseException catch (e) {
+      throw MFirebaseExceptions(e.code).message;
+    } on FormatException catch (_) {
+      throw const MFormatExceptions();
+    } on PlatformException catch (e) {
+      throw MPlatformExceptions(e.code).message;
+    } catch (e) {
+      throw 'Somthing went wrong please try again';
+    }
+  }
+
+  /// upload any image using fire storage
+  Future<String> uploadImage(String path, XFile image) async {
+    try {
+      final ref = FirebaseStorage.instance.ref(path).child(image.name);
+      await ref.putFile(File(image.path));
+      final url = await ref.getDownloadURL();
+      return url;
+    } on FirebaseException catch (e) {
+      throw MFirebaseExceptions(e.code).message;
+    } on FormatException catch (_) {
+      throw const MFormatExceptions();
+    } on PlatformException catch (e) {
+      throw MPlatformExceptions(e.code).message;
+    } catch (e) {
+      throw 'Somthing went wrong please try again';
+    }
+  }
 }

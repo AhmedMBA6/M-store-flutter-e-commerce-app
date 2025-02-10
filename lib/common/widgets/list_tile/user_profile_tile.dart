@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_splash_test1/features/personalization/controllers/user_controller.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/image_strings.dart';
 import '../images/circular_image.dart';
+import '../shimmers/shimmer.dart';
 
 class MUserProfileTile extends StatelessWidget {
   const MUserProfileTile({
@@ -18,12 +20,25 @@ class MUserProfileTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = UserController.instance;
     return ListTile(
-      leading: const MCircularImage(
-        image: MImages.user,
-        width: 50,
-        height: 50,
-        padding: 0,
-      ),
+      leading: Obx(() {
+        final networkImage = controller.user.value.profilePicture;
+        final image = networkImage.isNotEmpty ? networkImage : MImages.user;
+
+        return controller.imageUploading.value
+            ? const MShimmerEffect(
+                width: 80,
+                height: 80,
+                radius: 80,
+              )
+            : MCircularImage(
+                image: image,
+                width: 80,
+                height: 80,
+                padding: 3,
+                isNetworkImage: networkImage.isNotEmpty,
+                backgroundColor: MColors.white,
+              );
+      }),
       title: Text(
         controller.user.value.fullName,
         style: Theme.of(context)

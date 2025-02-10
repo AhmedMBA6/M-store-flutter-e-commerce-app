@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_splash_test1/common/widgets/images/circular_image.dart';
 
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
@@ -12,10 +13,12 @@ class MVerticalImageText extends StatelessWidget {
     this.textColor,
     this.backgroundColor,
     this.onTap,
+    this.isNetworkImage = true,
   });
 
   final String image, title;
   final Color? textColor;
+  final bool isNetworkImage;
   final Color? backgroundColor;
   final void Function()? onTap;
 
@@ -29,22 +32,15 @@ class MVerticalImageText extends StatelessWidget {
         child: Column(
           children: [
             /// Circular Icon
-            Container(
-              width: 56,
-              height: 56,
-              padding: const EdgeInsets.all(MSizes.sm),
-              decoration: BoxDecoration(
-                  color:
-                      backgroundColor ?? (dark ? MColors.black : MColors.white),
-                  borderRadius: BorderRadius.circular(100)),
-              child: Center(
-                child: Image(
-                  image: AssetImage(image),
-                  fit: BoxFit.cover,
-                  color: dark ? MColors.light : MColors.dark,
-                ),
-              ),
+            MCircularImage(
+              image: image,
+              fit: BoxFit.fitWidth,
+              padding: MSizes.md * 1.4,
+              isNetworkImage: isNetworkImage,
+              backgroundColor: backgroundColor,
+              overlayColor: dark ? MColors.light : MColors.dark,
             ),
+
             const SizedBox(
               height: MSizes.spaceBetweenItems / 4,
             ),

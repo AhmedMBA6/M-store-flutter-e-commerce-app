@@ -4,6 +4,7 @@ import 'package:flutter_splash_test1/common/widgets/custom_shapes/containers/sea
 import 'package:flutter_splash_test1/common/widgets/layouts/grid_layout.dart';
 import 'package:flutter_splash_test1/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:flutter_splash_test1/common/widgets/texts/section_heading.dart';
+import 'package:flutter_splash_test1/features/shop/controllers/category_controller.dart';
 import 'package:flutter_splash_test1/features/shop/screens/brands/all_brands_screen.dart';
 import 'package:flutter_splash_test1/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:flutter_splash_test1/utils/constants/sizes.dart';
@@ -20,9 +21,10 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final categories = CategoryController.instance.featuredCategories;
     final isDark = MHelperFunctions.isDarkMode(context);
     return DefaultTabController(
-      length: 5,
+      length: categories.length,
       child: Scaffold(
         appBar: MAppbar(
             title: Text(
@@ -90,23 +92,17 @@ class StoreScreen extends StatelessWidget {
                   ),
 
                   /// -- Tabs
-                  bottom: const MTabBar(tabs: [
-                    Tab(child: Text('Sports')),
-                    Tab(child: Text('Furniture')),
-                    Tab(child: Text('Electronics')),
-                    Tab(child: Text('Clothes')),
-                    Tab(child: Text('Cosmetics')),
-                  ]),
+                  bottom: MTabBar(
+                      tabs: categories
+                          .map((category) => Tab(child: Text(category.name)))
+                          .toList()),
                 ),
               ];
             },
-            body: const TabBarView(children: [
-              MCategoryTab(),
-              MCategoryTab(),
-              MCategoryTab(),
-              MCategoryTab(),
-              MCategoryTab(),
-            ])),
+            body: TabBarView(
+                children: categories
+                    .map((category) => MCategoryTab(category: category))
+                    .toList())),
       ),
     );
   }
